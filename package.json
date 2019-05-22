@@ -1,0 +1,16 @@
+{
+  "name": "artillery-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:fuzz": "artillery run fuzz-tests.yml"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "artillery": "1.6.0-28",
+    "artillery-plugin-fuzzer": "1.0.1"
+  }
+}

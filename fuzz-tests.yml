@@ -1,0 +1,12 @@
+config:
+  target: http://localhost
+  phases:
+    - duration: 10
+      arrivalRate: 20
+  # needed for fuzzer
+  plugins:
+    fuzzer: {}
+scenarios:
+  - flow:
+    - get:
+        url: "/?q={{naughtyString}}" # use naughtyString to get param based on https://github.com/minimaxir/big-list-of-naughty-strings/
