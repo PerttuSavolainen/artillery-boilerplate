@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test:basic": "artillery run basic-tests.yml",
     "test:fuzz": "artillery run fuzz-tests.yml"
   },
   "keywords": [],
