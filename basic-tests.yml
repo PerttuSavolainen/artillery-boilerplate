@@ -1,0 +1,46 @@
+config:
+  target: http://localhost
+  phases:
+    - duration: 10
+      arrivalRate: 1
+  # custom logic
+  processor: "./custom-functions.js"
+scenarios:
+  - flow:
+      - log: "New virtual user running"
+      # run custom logic in the scenario
+      - function: "invokedByFunctionAction"
+
+      - get:
+          url: "/"
+
+          beforeRequest: "invokedBeforeRequest"
+          afterResponse: "invokedAfterResponse"
+
+          # # basic auth
+          # auth:
+          #   user: myusername
+          #   pass: mypassword
+
+          # # request chaining: Extracting and reusing parts of a response
+          # capture:
+          #   json: "$.id"
+          #   as: "id"
+
+      - post:
+          url: "/upload"
+
+          # # url-encoded forms
+          # form:
+          #   name: "Homer Simpson"
+          #   favorite_food: "donuts"
+
+          # # multipart forms
+          # formData:
+          #   name: "Homer Simpson"
+          #   favorite_food: "donuts"
+
+      - post:
+          url: "/resource"
+          json:
+            hello: "world"
